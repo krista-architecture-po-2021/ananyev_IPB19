@@ -1,3 +1,5 @@
+/*import Facade.Facade;
+import Facade.IFacade;*/
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,19 +8,19 @@ public class TestFacade {
     @Test
     void getAllNews(){
         IFacade facade = new Facade();
-        assertEquals("All News", facade.getAllNews());
+        assertNotNull(facade.getAllNews());
     }
 
     @Test
     void getOneNews(){
         IFacade facade = new Facade();
-        assertEquals("One News 2243", facade.getOne("2243"));
+        assertNotNull(facade.getOne("2243"));
     }
 
     @Test
     void addOneNews(){
         IFacade facade = new Facade();
-        assertTrue(facade.addNews("2243"));
+        assertTrue(facade.addNews("Kaka", "2243", "Cathegory"));
     }
 
     @Test
@@ -30,25 +32,19 @@ public class TestFacade {
     @Test
     void updateNews(){
         IFacade facade = new Facade();
-        assertEquals("updated 2243",facade.updateNews("2243"));
+        assertTrue(facade.updateNews("2243", "Kaka", "5555", "Cathegory"));
     }
 
     @Test
     void getAllCathegories(){
         IFacade facade = new Facade();
-        assertEquals("All Cathegories", facade.getCathegoryList());
+        assertNotNull(facade.getCathegoryList());
     }
 
     @Test
     void addOneCathegory(){
         IFacade facade = new Facade();
-        assertTrue(facade.addCathegory("Kaka"));
-    }
-
-    @Test
-    void getOneCathegory(){
-        IFacade facade = new Facade();
-        assertTrue(facade.addCathegory("2243"));
+        assertTrue(facade.addCathegory("Kaka", "2243"));
     }
 
     @Test
@@ -60,6 +56,6 @@ public class TestFacade {
     @Test
     void updateCathegory(){
         IFacade facade = new Facade();
-        assertEquals("updated 2243",facade.updateCathegory("2243"));
+        assertTrue(facade.updateCathegory("2243", "Kaka2", "5555"));
     }
 }

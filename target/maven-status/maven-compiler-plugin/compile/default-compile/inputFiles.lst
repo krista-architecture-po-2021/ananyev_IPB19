@@ -1,0 +1,12 @@
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Models/News.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/INews_controller.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Models/NewsModel.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Facade.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Models/CathegoryModel.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/ICathegory.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/IFacade.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Models/CathegoryList.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Main.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/News_controller.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Cathegory_controller.java
+/home/gleb/Labs/ArchitecturePO/Lab1_Patterns/src/main/java/Models/Cathegory.java

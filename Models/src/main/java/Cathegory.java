@@ -1,9 +1,8 @@
-package Models;
-
 public class Cathegory {
     private String cat_text;
     private String id;
-    public void  Cathegory(String text, String id){
+
+    public Cathegory(String text, String id){
         setCat_text(text);
         setId(id);
     }
