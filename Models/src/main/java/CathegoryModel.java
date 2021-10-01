@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class CathegoryModel {
+public class CathegoryModel implements ICathegoryModel{
     private CathegoryList cath_list;
     public CathegoryModel(){
         /*System.out.println("Created CathegoryModel");*/
@@ -16,12 +16,12 @@ public class CathegoryModel {
     public List<Cathegory> getAll(){
         return cath_list.getCath_list();
     }
+
     public boolean deleteOne(String cathegory_id){
         cath_list.delCathegory(cathegory_id);
         return true;
     }
     public boolean updateOne(String old_id, String cathegory, String cathegory_id){
-
         return true;
     }
 }

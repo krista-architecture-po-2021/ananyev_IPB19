@@ -1,11 +1,10 @@
 /*import Models.Cathegory;
 import Models.CathegoryModel;*/
 
-import javax.inject.Inject;
 import java.util.List;
 
 public class Cathegory_controller implements ICathegory_controller {
-    private CathegoryModel cathegoryModel = new CathegoryModel();
+    private ICathegoryModel cathegoryModel = new CathegoryModel();
 
     @Override
     public List<Cathegory> getAll() {

@@ -1,22 +1,29 @@
-import java.util.ArrayList;
-import java.util.List;
-
-public class NewsModel {
-    public NewsModel(){
-        System.out.println("Created NewsModel");
+public class NewsModel implements INewsModel {
+    /*INewsDAO newsDAO = new NewsDAO();*/
+    public NewsModel() {
+        /*System.out.println("Created NewsModel");*/
     }
 
-    public List<News> getAllNews() {
-        return new ArrayList<News>();
+    public INewsDAO getAllNews() {
+        NewsDAO newsDAO = new NewsDAO();
+        newsDAO.add(new News("Kaka", "2436", "Cathegory"));
+        newsDAO.add(new News("Ilya", "1111", "MOCIKT"));
+        return newsDAO;
     }
 
-    public News getOne(String news_id) {
-        return new News("Kaka", news_id, "Cathegory");
+    public INewsDAO getOne(String news_id) {
+        NewsDAO newsDAO = new NewsDAO();
+        newsDAO.add(new News("Kaka", news_id, "Cathegory"));
+        return newsDAO;
     }
 
-    public boolean addNews(String news_text, String news_id, String cathegory) { return true; }
+    public boolean addNews(String news_text, String news_id, String cathegory) {
+        return true;
+    }
 
-    public boolean deleteNews(String news_id) { return true; }
+    public boolean deleteNews(String news_id) {
+        return true;
+    }
 
     public boolean updateNews(String old_id, String news_text, String news_id, String cathegory) {
         return true;
