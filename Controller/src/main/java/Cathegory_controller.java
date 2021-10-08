@@ -4,25 +4,22 @@ import Models.CathegoryModel;*/
 import java.util.List;
 
 public class Cathegory_controller implements ICathegory_controller {
-    private ICathegoryModel cathegoryModel = new CathegoryModel();
+    private ModelFactory modelFactory = ModelFactory.getModel(2);
+    //private ICathegoryModel cathegoryModel = new CathegoryModel();
 
-    @Override
-    public List<Cathegory> getAll() {
-        return cathegoryModel.getAll();
+    public List<CathegoryDO> getAll() {
+        return modelFactory.getNewsDao().getAll();
     }
 
-    @Override
     public boolean addOne(String cathegory, String id) {
-        return cathegoryModel.add(cathegory, id);
+        return modelFactory.addCathegory(new CathegoryDO(cathegory, id));
     }
 
-    @Override
     public boolean deleteOne(String cathegory_id) {
-        return cathegoryModel.deleteOne(cathegory_id);
+        return modelFactory.deleteCath(cathegory_id);
     }
 
-    @Override
     public boolean updateOne(String old_id, String cathegory, String cathegory_id) {
-        return cathegoryModel.updateOne(old_id, cathegory, cathegory_id);
+        return modelFactory.updateCath(old_id, new CathegoryDO(cathegory, cathegory_id));
     }
 }

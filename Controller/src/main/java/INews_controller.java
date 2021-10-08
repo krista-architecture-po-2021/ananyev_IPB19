@@ -8,8 +8,8 @@ public interface INews_controller {
     /*protected String getAll(){
         return new String("All news");
     }*/
-    List<News> getAll();
-    News getOne(String news_id);
+    List<NewsBO> getAll();
+    NewsBO getOne(String news_id);
     boolean AddOne(String news_text, String news_id, String cathegory);
     boolean DeleteOne(String news_id);
     boolean updateNews(String old_id, String news_text, String news_id, String cathegory);

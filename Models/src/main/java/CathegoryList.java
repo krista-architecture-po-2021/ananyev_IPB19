@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CathegoryList { // Uses Singleton
     private static volatile CathegoryList cathegoryListInst;
-    private List<Cathegory> cath_list = new ArrayList<>();
+    private List<CathegoryDO> cath_list = new ArrayList<>();
 
     private CathegoryList(){
 
@@ -21,7 +21,7 @@ public class CathegoryList { // Uses Singleton
         return local_list;
     }
 
-    public void addCathList(Cathegory cathegory){
+    public void addCathList(CathegoryDO cathegory){
         this.cath_list.add(cathegory);
     }
 
@@ -41,15 +41,15 @@ public class CathegoryList { // Uses Singleton
 
     public boolean updateOneEl(String old_id, String cathegory, String cathegory_id){
         int ind_of_el = findElID(old_id);
-        cath_list.set(ind_of_el, new Cathegory(cathegory, cathegory_id));
+        cath_list.set(ind_of_el, new CathegoryDO(cathegory, cathegory_id));
         return true;
     }
 
-    public List<Cathegory> getCath_list() {
+    public List<CathegoryDO> getCath_list() {
         return cath_list;
     }
 
-    public void setCath_list(List<Cathegory> cath_list) {
+    public void setCath_list(List<CathegoryDO> cath_list) {
         this.cath_list = cath_list;
     }
 }

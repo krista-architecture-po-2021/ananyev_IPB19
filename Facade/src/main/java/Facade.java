@@ -8,15 +8,15 @@ public class Facade implements IFacade {
     private News_controller news_controller = new News_controller();
     private Cathegory_controller cathegory_controller = new Cathegory_controller();
 
-    public List<News> getAllNews() {
+    public List<NewsBO> getAllNews() {
         return news_controller.getAll();
     }
 
-    public News getOne(String news_id) {
+    public NewsBO getOne(String news_id) {
         return news_controller.getOne(news_id);
     }
 
-    public boolean addNews(String news_text, String news_id, String cathegory) { return news_controller.AddOne(news_text, news_id, cathegory); }
+    public boolean addNews(String news_text, String news_id, String cathegory_id) { return news_controller.AddOne(news_text, news_id, cathegory_id); }
 
     public boolean deleteNews(String news_id) { return news_controller.DeleteOne(news_id); }
 
@@ -24,7 +24,7 @@ public class Facade implements IFacade {
         return news_controller.updateNews(old_id, news_text, news_id, cathegory);
     }
 
-    public List<Cathegory> getCathegoryList() {
+    public List<CathegoryDO> getCathegoryList() {
         return cathegory_controller.getAll();
     }
 

@@ -4,9 +4,9 @@ public interface INewsModel {
 
     INewsDAO getAllNews();
 
-    boolean addNews(String news_text, String news_id, String cathegory);
+    boolean addNews(NewsDO news);
 
     boolean deleteNews(String news_id);
 
-    boolean updateNews(String old_id, String news_text, String news_id, String cathegory);
+    boolean updateNews(String old_id, NewsDO news);
 }

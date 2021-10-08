@@ -8,12 +8,12 @@ public class CathegoryModel implements ICathegoryModel{
     }
 
     public boolean add(String cathegory, String id) {
-        cath_list.addCathList(new Cathegory(cathegory, id));
+        cath_list.addCathList(new CathegoryDO(cathegory, id));
 //        System.out.println(cathegory);
         return true;
     }
 
-    public List<Cathegory> getAll(){
+    public List<CathegoryDO> getAll(){
         return cath_list.getCath_list();
     }
 

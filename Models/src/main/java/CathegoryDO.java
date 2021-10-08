@@ -1,8 +1,8 @@
-public class Cathegory {
+public class CathegoryDO {
     private String cat_text;
     private String id;
 
-    public Cathegory(String text, String id){
+    public CathegoryDO(String text, String id){
         setCat_text(text);
         setId(id);
     }

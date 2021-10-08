@@ -6,56 +6,66 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestFacade {
     @Test
+    void addOneNews(){
+        IFacade facade = new Facade();
+        assertTrue(facade.addNews("Kaka", "2243", "1110"));
+    }
+
+    @Test
     void getAllNews(){
         IFacade facade = new Facade();
+        facade.addNews("Ilya ne v BIV", "22412", "1110");
+        facade.addCathegory("Politics", "1110");
+        facade.addCathegory("Sport", "2243");
         assertNotNull(facade.getAllNews());
     }
 
     @Test
     void getOneNews(){
         IFacade facade = new Facade();
-        assertNotNull(facade.getOne("2243"));
-    }
-
-    @Test
-    void addOneNews(){
-        IFacade facade = new Facade();
-        assertTrue(facade.addNews("Kaka", "2243", "Cathegory"));
+        facade.addNews("Ilya ne v BIV", "22412", "1110");
+        facade.addCathegory("Politics","1110");
+        assertNotNull(facade.getOne("22412"));
     }
 
     @Test
     void deleteOneNews(){
         IFacade facade = new Facade();
-        assertTrue(facade.deleteNews("2243"));
+        facade.addNews("Ilya ne v BIV", "22412", "1110");
+        assertTrue(facade.deleteNews("22412"));
     }
 
     @Test
     void updateNews(){
         IFacade facade = new Facade();
-        assertTrue(facade.updateNews("2243", "Kaka", "5555", "Cathegory"));
+        facade.addNews("Ilya ne v BIV", "22412", "1110");
+        assertTrue(facade.updateNews("22412", "Kaka", "5555", "55431"));
     }
 
     @Test
     void getAllCathegories(){
         IFacade facade = new Facade();
+        facade.addCathegory("Nature", "55431");
         assertNotNull(facade.getCathegoryList());
     }
 
     @Test
     void addOneCathegory(){
         IFacade facade = new Facade();
-        assertTrue(facade.addCathegory("Kaka", "2243"));
+        assertTrue(facade.addCathegory("Fashion", "14665"));
     }
 
     @Test
     void deleteOneCathegory(){
         IFacade facade = new Facade();
-        assertTrue(facade.deleteCathegory("2243"));
+        facade.addCathegory("Politics", "1110");
+        assertTrue(facade.deleteCathegory("1110"));
     }
 
     @Test
     void updateCathegory(){
         IFacade facade = new Facade();
-        assertTrue(facade.updateCathegory("2243", "Kaka2", "5555"));
+        facade.addCathegory("Politics", "1110");
+        assertTrue(facade.updateCathegory("1110", "4325", "NotKaka"));
     }
 }

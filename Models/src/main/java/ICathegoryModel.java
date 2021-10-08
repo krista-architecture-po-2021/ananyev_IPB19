@@ -4,7 +4,7 @@ public interface ICathegoryModel {
 
     boolean add(String cathegory, String id);
 
-    List<Cathegory> getAll();
+    List<CathegoryDO> getAll();
 
     boolean deleteOne(String cathegory_id);
 

@@ -1,12 +1,12 @@
-public class News {
+public class NewsBO {
     private String news_text;
     private String id;
-    private String cathegory_id;
+    private String cathegory;
 
-    public News(String text, String id, String cathegory_id) {
+    public NewsBO(String text, String id, String cathegory) {
         setNews_text(text);
         setId(id);
-        setCathegory_id(cathegory_id);
+        setCathegory(cathegory);
     }
 
     public String getNews_text() {
@@ -25,11 +25,11 @@ public class News {
         this.id = id;
     }
 
-    public String getCathegory_id() {
-        return cathegory_id;
+    public String getCathegory() {
+        return cathegory;
     }
 
-    public void setCathegory_id(String cathegory_id) {
-        this.cathegory_id = cathegory_id;
+    public void setCathegory(String cathegory) {
+        this.cathegory = cathegory;
     }
 }
