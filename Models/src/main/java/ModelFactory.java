@@ -1,15 +1,16 @@
 public abstract class ModelFactory {
-    private static final int JSON = 1;
-    private static final int DB = 2;
+    private static final int File = 1;
+    private static final int Arr = 2;
 
     public abstract INewsDAO getNewsDao();
     public abstract ICathegoriesDAO getCategoriesDao();
 
-    private static DBModel dbModel = new DBModel();
+    private static DBModelArr dbModelArr = new DBModelArr();
+    private static DBModelF dbModelF = new DBModelF();
 
     public static ModelFactory getModel(int value) {
-        //if (value == JSON) return new JsonModel();
-        return dbModel;
+        if (value == File) return dbModelF;
+            return dbModelArr;
     }
 
     public abstract boolean addNews(NewsDO news);

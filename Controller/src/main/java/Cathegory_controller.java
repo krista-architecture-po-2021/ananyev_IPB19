@@ -4,7 +4,7 @@ import Models.CathegoryModel;*/
 import java.util.List;
 
 public class Cathegory_controller implements ICathegory_controller {
-    private ModelFactory modelFactory = ModelFactory.getModel(2);
+    private ModelFactory modelFactory = ModelFactory.getModel(1);
     //private ICathegoryModel cathegoryModel = new CathegoryModel();
 
     public List<CathegoryDO> getAll() {

@@ -1,7 +1,7 @@
-public class DBModel extends ModelFactory {
+public class DBModelArr extends ModelFactory {
     /*INewsDAO newsDAO = new NewsDAO();*/
     private DB_Arr db = new DB_Arr();
-    public DBModel() {
+    public DBModelArr() {
         /*System.out.println("Created NewsModel");*/
     }
 
