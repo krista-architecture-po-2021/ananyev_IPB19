@@ -1,10 +1,37 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsDAO implements INewsDAO<NewsDO> {
-    List<NewsDO> l_news = new ArrayList<>();
+public class NewsDAO implements IDAO<NewsDO>{
+    /*List<NewsDO> l_news = new ArrayList<>();*/
+    IProvider provider;
+    String entityName = "news";
+
+    public NewsDAO(IProvider anyprovider){
+        provider = anyprovider;
+    }
 
     public List<NewsDO> getAll() {
+        return provider.<NewsDO>getAll(entityName);
+    }
+
+    public NewsDO getOne(String id) {
+        return provider.<NewsDO>getOne(entityName, id);
+    }
+
+    public boolean update(String old_id, NewsDO news_upd) {
+        return provider.<NewsDO>update(entityName, old_id, news_upd);
+    }
+
+    public boolean add(NewsDO news) {
+        return provider.<NewsDO>add(entityName, news);
+    }
+
+    public boolean delete(String id) {
+        return provider.<NewsDO>delete(entityName, id);
+    }
+
+
+/*    public List<NewsDO> getAll() {
         return l_news;
     }
 
@@ -49,5 +76,5 @@ public class NewsDAO implements INewsDAO<NewsDO> {
         if (news_to_del != -1)
             l_news.remove(news_to_del);
         return true;
-    }
+    }*/
 }

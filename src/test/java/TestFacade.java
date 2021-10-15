@@ -2,6 +2,9 @@
 import Facade.IFacade;*/
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestFacade {
@@ -24,7 +27,7 @@ public class TestFacade {
     void getOneNews(){
         IFacade facade = new Facade();
         facade.addNews("Ilya ne v BIV", "22412", "1110");
-        facade.addCathegory("Politics","1110");
+        facade.addCathegory("RSATU","1110");
         assertNotNull(facade.getOne("22412"));
     }
 
@@ -47,6 +50,8 @@ public class TestFacade {
         IFacade facade = new Facade();
         facade.addCathegory("Nature", "55431");
         assertNotNull(facade.getCathegoryList());
+        /*List<CathegoryDO>t_bo = facade.getCathegoryList();
+        for (CathegoryDO cathegoryDO : t_bo) System.out.println(cathegoryDO.getCat_text() + ' ' + cathegoryDO.getId());*/
     }
 
     @Test
@@ -58,14 +63,14 @@ public class TestFacade {
     @Test
     void deleteOneCathegory(){
         IFacade facade = new Facade();
-        facade.addCathegory("Politics", "1110");
+        facade.addCathegory("Travelling", "1110");
         assertTrue(facade.deleteCathegory("1110"));
     }
 
     @Test
     void updateCathegory(){
         IFacade facade = new Facade();
-        facade.addCathegory("Politics", "1110");
-        assertTrue(facade.updateCathegory("1110", "4325", "NotKaka"));
+        facade.addCathegory("Housekeeping", "1110");
+        assertTrue(facade.updateCathegory("1110", "NotKaka", "4325"));
     }
 }

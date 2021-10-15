@@ -1,8 +1,10 @@
+import java.util.List;
+
 public interface INewsModel {
 
-    INewsDAO getOne(String news_id);
+    NewsDO getOne(String news_id);
 
-    INewsDAO getAllNews();
+    List<NewsDO> getAllNews();
 
     boolean addNews(NewsDO news);
 

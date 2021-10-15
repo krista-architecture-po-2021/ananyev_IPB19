@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DB_Arr {
+public class DB_Arr implements IDBase{
     private List<NewsDO> news_list = new ArrayList<>();
     private List<CathegoryDO> cath_list = new ArrayList<>();
 
-    public NewsDAO getNewsDAO(){
-        NewsDAO newsDAO = new NewsDAO();
-        newsDAO.add(news_list);
-        return newsDAO;
+    public List<NewsDO> getNews(String entityName){
+        /*NewsDAO newsDAO = new NewsDAO();
+        newsDAO.add(news_list);*/
+        return news_list;
     }
 
-    public CathegoriesDAO getCathDAO(){
-        CathegoriesDAO cathDAO = new CathegoriesDAO();
-        cathDAO.add(cath_list);
-        return cathDAO;
+    public List<CathegoryDO> getCath(String entityName){
+        /*CathegoriesDAO cathDAO = new CathegoriesDAO();
+        cathDAO.add(cath_list);*/
+        return cath_list;
     }
 
     public boolean addNews(NewsDO news){
@@ -59,6 +59,19 @@ public class DB_Arr {
         return true;
     }
 
+    public NewsDO getOneNews(String id){
+        int ind = searchforNews(id);
+        if(ind < 0)
+            return null;
+        return news_list.get(ind);
+    }
+
+    public CathegoryDO getOneCath(String id){
+        int ind = searchforCath(id);
+        if(ind < 0)
+            return null;
+        return cath_list.get(ind);
+    }
 
     private int searchforCath(String id) {
         int el_to_find = -1;

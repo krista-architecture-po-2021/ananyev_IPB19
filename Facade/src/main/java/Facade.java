@@ -36,7 +36,7 @@ public class Facade implements IFacade {
         return cathegory_controller.deleteOne(cathegory_id);
     }
 
-    public boolean updateCathegory(String old_id, String cathegory_id, String cathegory) {
-        return cathegory_controller.updateOne(old_id, cathegory_id, cathegory);
+    public boolean updateCathegory(String old_id, String cathegory, String cathegory_id) {
+        return cathegory_controller.updateOne(old_id, cathegory, cathegory_id);
     }
 }

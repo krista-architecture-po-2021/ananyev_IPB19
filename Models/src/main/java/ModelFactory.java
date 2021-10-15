@@ -2,18 +2,18 @@ public abstract class ModelFactory {
     private static final int File = 1;
     private static final int Arr = 2;
 
-    public abstract INewsDAO getNewsDao();
-    public abstract ICathegoriesDAO getCategoriesDao();
+    public abstract IDAO<NewsDO> getNewsDao();
+    public abstract IDAO<CathegoryDO> getCategoriesDao();
 
     private static DBModelArr dbModelArr = new DBModelArr();
     private static DBModelF dbModelF = new DBModelF();
 
     public static ModelFactory getModel(int value) {
         if (value == File) return dbModelF;
-            return dbModelArr;
+        return dbModelArr;
     }
 
-    public abstract boolean addNews(NewsDO news);
+    /*public abstract boolean addNews(NewsDO news);
 
     public abstract boolean deleteNews(String news_id);
 
@@ -23,6 +23,6 @@ public abstract class ModelFactory {
 
     public abstract boolean deleteCath(String cath_id);
 
-    public abstract boolean updateCath(String old_id, CathegoryDO cath);
+    public abstract boolean updateCath(String old_id, CathegoryDO cath);*/
 
 }

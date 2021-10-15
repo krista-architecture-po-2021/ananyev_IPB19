@@ -19,20 +19,20 @@ public class News_controller implements INews_controller {
     }
 
     public NewsBO getOne(String news_id) {
-        NewsDO doNews = (NewsDO) modelFactory.getNewsDao().getOne(news_id);
-        CathegoriesDAO daoCathList = (CathegoriesDAO) modelFactory.getCategoriesDao();
-        return new NewsBO(doNews.getNews_text(), doNews.getId(), daoCathList.getOne(doNews.getCathegory_id()).getCat_text());
+        NewsDO doNews = modelFactory.getNewsDao().getOne(news_id);
+        String text = modelFactory.getCategoriesDao().getOne(doNews.getCathegory_id()).getCat_text();
+        return new NewsBO(doNews.getNews_text(), doNews.getId(), text);
     }
 
     public boolean AddOne(String news_text, String news_id, String cathegory_id) {
-        return modelFactory.addNews(new NewsDO(news_text, news_id, cathegory_id));
+        return modelFactory.getNewsDao().add(new NewsDO(news_text, news_id, cathegory_id));
     }
 
     public boolean DeleteOne(String news_id) {
-        return modelFactory.deleteNews(news_id);
+        return modelFactory.getNewsDao().delete(news_id);
     }
 
     public boolean updateNews(String old_id, String news_text, String news_id, String cathegory) {
-        return modelFactory.updateNews(old_id, new NewsDO(news_text, news_id, cathegory));
+        return modelFactory.getNewsDao().update(old_id, new NewsDO(news_text, news_id, cathegory));
     }
 }

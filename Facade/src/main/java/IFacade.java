@@ -15,5 +15,5 @@ public interface IFacade {
     List<CathegoryDO> getCathegoryList();
     boolean addCathegory(String cathegory, String id);
     boolean deleteCathegory(String cathegory_id);
-    boolean updateCathegory(String old_id, String cathegory_id, String cathegory);
+    boolean updateCathegory(String old_id, String cathegory, String cathegory_id);
 }

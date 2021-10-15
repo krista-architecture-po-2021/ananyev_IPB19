@@ -1,11 +1,11 @@
 public class DBModelArr extends ModelFactory {
+    private IDBase db = new DB_Arr();
     /*INewsDAO newsDAO = new NewsDAO();*/
-    private DB_Arr db = new DB_Arr();
     public DBModelArr() {
-        /*System.out.println("Created NewsModel");*/
+        //System.out.println("Created NewsModel");
     }
 
-    public boolean addNews(NewsDO news) { return db.addNews(news); }
+/*    public boolean addNews(NewsDO news) { return db.addNews(news); }
 
     public boolean addCathegory(CathegoryDO cathegory){ return db.addCathegory(cathegory); }
 
@@ -19,13 +19,15 @@ public class DBModelArr extends ModelFactory {
 
     public boolean updateCath(String old_id, CathegoryDO cath) {
         return db.updateCath(old_id, cath);
+    }*/
+
+    public NewsDAO getNewsDao() {
+        FormatProvider formatProvider = new FormatProvider(db);
+        return new NewsDAO(formatProvider);
     }
 
-    public INewsDAO getNewsDao() {
-        return db.getNewsDAO();
-    }
-
-    public ICathegoriesDAO getCategoriesDao() {
-        return db.getCathDAO();
+    public CathegoriesDAO getCategoriesDao() {
+        FormatProvider formatProvider = new FormatProvider(db);
+        return new CathegoriesDAO(formatProvider);
     }
 }
