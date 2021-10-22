@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class News_controller implements INews_controller {
-    private ModelFactory modelFactory = ModelFactory.getModel(1);
+    private ModelFactory modelFactory = ModelFactory.getModel(2);
     //private INewsModel newsModel = new DBModel();
 
     public List<NewsBO> getAll() {

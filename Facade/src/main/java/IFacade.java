@@ -6,7 +6,7 @@ public interface IFacade {
     //private News_controller news_controller = new News_controller();
 
     //String getAllNews(){return news_controller.getAll();};
-    List<NewsBO> getAllNews();
+    List<NewsBO> getAllNews(List<String> sadWords, List<String> selectedCathegory);
     NewsBO getOne(String news_id);
     boolean addNews(String news_text, String news_id, String cathegory_id);
     boolean deleteNews(String news_id);

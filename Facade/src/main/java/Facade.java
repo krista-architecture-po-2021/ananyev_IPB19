@@ -5,11 +5,23 @@ import Models.Cathegory;*/
 import java.util.List;
 
 public class Facade implements IFacade {
-    private News_controller news_controller = new News_controller();
-    private Cathegory_controller cathegory_controller = new Cathegory_controller();
+    private final INews_controller news_controller = new News_controller();
+    //private final INews_controller news_controller = new DecorPositive(new News_controller());
+    private final ICathegory_controller cathegory_controller = new Cathegory_controller();
 
-    public List<NewsBO> getAllNews() {
-        return news_controller.getAll();
+
+    private INews_controller getNewsContoroller(List<String> sadWords, List<String> selectedCathegory)
+    {
+        INews_controller c = new News_controller();
+        if((sadWords != null)&&(sadWords.size() > 0))
+            c = new DecorWords(sadWords, c);
+        if((selectedCathegory != null)&&(selectedCathegory.size() > 0))
+            c = new DecorCathegory(selectedCathegory, c);
+        return c;
+    }
+
+    public List<NewsBO> getAllNews(List<String> sadWords, List<String> selectedCathegory) {
+        return getNewsContoroller(sadWords, selectedCathegory).getAll();
     }
 
     public NewsBO getOne(String news_id) {
