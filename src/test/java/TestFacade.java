@@ -25,15 +25,17 @@ public class TestFacade {
         facade.addNews("Za kr 5 positive !", "22415", "2243");
         facade.addNews("Ne zdal fizru negative!", "22416", "2243");
         facade.addCathegory("Politics", "1110");
-        facade.addCathegory("Sport", "2243");
+        facade.addCathegory("Sports", "2243");
 
         List<String> sadWords = new ArrayList<>();
         sadWords.add("negative");
         List<String> selectedCathegory = new ArrayList<>();
         selectedCathegory.add("Politics");
 
-        assertNotNull(facade.getAllNews(sadWords, selectedCathegory));
-        List<NewsBO> news_list = facade.getAllNews(sadWords, selectedCathegory);
+        facade.setFilters(sadWords, selectedCathegory);
+
+        assertNotNull(facade.getAllNews());
+        List<NewsBO> news_list = facade.getAllNews();
         for(NewsBO newsBO : news_list)
             System.out.println(newsBO.getId() + ' ' + newsBO.getCathegory() + ' ' + newsBO.getNews_text());
     }

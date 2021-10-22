@@ -8,9 +8,15 @@ public class Facade implements IFacade {
     private final INews_controller news_controller = new News_controller();
     //private final INews_controller news_controller = new DecorPositive(new News_controller());
     private final ICathegory_controller cathegory_controller = new Cathegory_controller();
+    List<String> sadWords, selectedCathegory;
 
+    public void setFilters(List<String> sadWords, List<String> selectedCathegory)
+    {
+        this.sadWords = sadWords;
+        this.selectedCathegory = selectedCathegory;
+    }
 
-    private INews_controller getNewsContoroller(List<String> sadWords, List<String> selectedCathegory)
+    private INews_controller getNewsContoroller()
     {
         INews_controller c = new News_controller();
         if((sadWords != null)&&(sadWords.size() > 0))
@@ -20,8 +26,8 @@ public class Facade implements IFacade {
         return c;
     }
 
-    public List<NewsBO> getAllNews(List<String> sadWords, List<String> selectedCathegory) {
-        return getNewsContoroller(sadWords, selectedCathegory).getAll();
+    public List<NewsBO> getAllNews() {
+        return getNewsContoroller().getAll();
     }
 
     public NewsBO getOne(String news_id) {
