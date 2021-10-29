@@ -24,8 +24,16 @@ public class News_controller implements INews_controller {
         return new NewsBO(doNews.getNews_text(), doNews.getId(), text);
     }
 
-    public boolean AddOne(String news_text, String news_id, String cathegory_id) {
-        return modelFactory.getNewsDao().add(new NewsDO(news_text, news_id, cathegory_id));
+    public boolean AddNews(List<NewsDO> news_list) {
+        boolean retVal = true;
+        for(NewsDO news : news_list) {
+            if(!modelFactory.getNewsDao().add(news))
+            {
+                retVal = false;
+                break;
+            }
+        }
+        return retVal;
     }
 
     public boolean DeleteOne(String news_id) {

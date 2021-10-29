@@ -16,8 +16,8 @@ public abstract class NewsAbstrContr implements INews_controller {
         return news_controller.getOne(news_id);
     }
 
-    public boolean AddOne(String news_text, String news_id, String cathegory) {
-        return news_controller.AddOne(news_text, news_id, cathegory);
+    public boolean AddNews(List<NewsDO> news_list) {
+        return news_controller.AddNews(news_list);
     }
 
     public boolean DeleteOne(String news_id) {

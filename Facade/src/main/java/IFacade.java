@@ -6,15 +6,15 @@ public interface IFacade {
     //private News_controller news_controller = new News_controller();
 
     //String getAllNews(){return news_controller.getAll();};
-    List<NewsBO> getAllNews();
-    void setFilters(List<String> sadWords, List<String> selectedCathegory);
-    NewsBO getOne(String news_id);
-    boolean addNews(String news_text, String news_id, String cathegory_id);
-    boolean deleteNews(String news_id);
-    boolean updateNews(String old_id, String news_text, String news_id, String cathegory);
+    Message getAllNews(Message mes);
+    Message setFilters(Message mes);
+    Message getOne(Message mes);
+    Message addNews(Message mes);
+    Message deleteNews(Message mes);
+    Message updateNews(Message mes);
 
-    List<CathegoryDO> getCathegoryList();
-    boolean addCathegory(String cathegory, String id);
-    boolean deleteCathegory(String cathegory_id);
-    boolean updateCathegory(String old_id, String cathegory, String cathegory_id);
+    Message getCathegoryList(Message mes);
+    Message addCathegory(Message mes);
+    Message deleteCathegory(Message mes);
+    Message updateCathegory(Message mes);
 }

@@ -10,8 +10,8 @@ public class DecorCathegory extends NewsAbstrContr{
     }
 
     @Override
-    public boolean AddOne(String news_text, String news_id, String cathegory) {
-        return super.AddOne(news_text, news_id, cathegory);
+    public boolean AddNews(List<NewsDO> news_list) {
+        return super.AddNews(news_list);
     }
 
     @Override

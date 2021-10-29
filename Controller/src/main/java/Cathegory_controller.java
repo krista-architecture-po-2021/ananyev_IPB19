@@ -11,8 +11,15 @@ public class Cathegory_controller implements ICathegory_controller {
         return modelFactory.getCategoriesDao().getAll();
     }
 
-    public boolean addOne(String cathegory, String id) {
-        return modelFactory.getCategoriesDao().add(new CathegoryDO(cathegory, id));
+    public boolean addCaths(List<CathegoryDO> cath_list) {
+        boolean retVal = true;
+        for(CathegoryDO cath : cath_list) {
+            if(!modelFactory.getCategoriesDao().add(cath)) {
+                retVal = false;
+                break;
+            }
+        }
+        return retVal;
     }
 
     public boolean deleteOne(String cathegory_id) {
