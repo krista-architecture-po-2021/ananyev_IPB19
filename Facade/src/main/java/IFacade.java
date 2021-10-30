@@ -1,5 +1,3 @@
-/*import Models.Cathegory;*/
-
 import java.util.List;
 
 public interface IFacade {
@@ -8,6 +6,7 @@ public interface IFacade {
     //String getAllNews(){return news_controller.getAll();};
     Message getAllNews(Message mes);
     Message setFilters(Message mes);
+    Message clearFilters(Message mes);
     Message getOne(Message mes);
     Message addNews(Message mes);
     Message deleteNews(Message mes);

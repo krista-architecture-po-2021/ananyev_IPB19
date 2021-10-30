@@ -1,7 +1,3 @@
-/*import Controller.Cathegory_controller;
-import Controller.News_controller;
-import Models.Cathegory;*/
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +11,17 @@ public class Facade implements IFacade {
     {
         this.sadWords = mes.getSadwords();
         this.selectedCathegory = mes.getSelected_cathegory();
-        if((sadWords != null)||(selectedCathegory != null))
-            mes.setResponse_code(200);
-        else
-            mes.setResponse_code(404);
+        mes.setResponse_code(404);
+        return mes;
+    }
+
+    public Message clearFilters(Message mes){
+        mes.setResponse_code(400);
+        if(sadWords != null)
+            sadWords.clear();
+        if(selectedCathegory != null)
+            selectedCathegory.clear();
+        mes.setResponse_code(200);
         return mes;
     }
 
@@ -32,7 +35,19 @@ public class Facade implements IFacade {
         return c;
     }
 
-    private String getCathID(NewsBO news){
+    private String getCathIDbyName(CathegoryDO cath){
+        String cath_id = null;
+        List<CathegoryDO> cath_list = cathegory_controller.getAll();
+        for(CathegoryDO caths : cath_list){
+            if(caths.getCat_text().equals(cath.getCat_text())) {
+                cath_id = caths.getId();
+                break;
+            }
+        }
+        return cath_id;
+    }
+
+    private String getCathIDbyNews(NewsBO news){
         List<CathegoryDO> cath_list = cathegory_controller.getAll();
         String cathegory_id = null;
         for (CathegoryDO cath : cath_list)
@@ -67,7 +82,7 @@ public class Facade implements IFacade {
 
         List<NewsBO> news_list = mes.getNews_list();
         for(NewsBO news : news_list) {
-            String cathegory_id = getCathID(news);
+            String cathegory_id = getCathIDbyNews(news);
 
             if (cathegory_id == null) {
                 mes.setResponse_code(400);
@@ -104,7 +119,7 @@ public class Facade implements IFacade {
             mes.setResponse_code(400);
             return mes;
         }
-        String cathegory_id = getCathID(new_news);
+        String cathegory_id = getCathIDbyNews(new_news);
         if(cathegory_id == null)
         {
             mes.setResponse_code(400);
@@ -144,14 +159,9 @@ public class Facade implements IFacade {
             mes.setResponse_code(400);
             return mes;
         }
-        List<CathegoryDO> cath_list = cathegory_controller.getAll();
-        String cath_id = null;
-        for(CathegoryDO caths : cath_list)
-            if(caths.getCat_text().equals(cath.getCat_text()))
-            {
-                cath_id = caths.getId();
-                break;
-            }
+
+        String cath_id = getCathIDbyName(cath);
+
         mes.setResponse_code(400);
         if(cath_id == null)
             return mes;
@@ -169,8 +179,12 @@ public class Facade implements IFacade {
             return mes;
         }
 
+        String cath_id_old = getCathIDbyName(old_cath);
         mes.setResponse_code(400);
-        if(cathegory_controller.updateOne(old_cath.getId(), new_cath.getCat_text(), new_cath.getId()))
+        if(cath_id_old== null)
+            return mes;
+
+        if(cathegory_controller.updateOne(cath_id_old, new_cath.getCat_text(), new_cath.getId()))
             mes.setResponse_code(200);
         return mes;
     }

@@ -13,6 +13,8 @@ public class APIAdmin {
         return facade.setFilters(mes1);
     }
 
+    public Message clearFilters(Message mes){ return facade.clearFilters(mes); }
+
     public Message getOne(Message mes){
         return facade.getOne(mes);
     }
