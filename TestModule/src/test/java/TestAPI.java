@@ -66,5 +66,8 @@ public class TestAPI {
         cath_list.add(new CathegoryDO("AnimalWorld",""));
         message.setCath_list(cath_list);
         message = apiAdmin.deleteCathegory(message);
+
+        // Обновление категории
+        message.setOld_cath(new CathegoryDO("Politics",""));
     }
 }
